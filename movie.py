@@ -11,6 +11,17 @@ from itertools import cycle
 key = 'k_qy8yg6dq'
 
 
+def fetch_poster(movie_id):
+    url = "https://api.themoviedb.org/3/find/{}?api_key=6948ed89118150000547f12dca283524&language=en-US&external_source=imdb_id".format(
+        movie_id)
+    data = requests.get(url)
+    data = data.json()
+    # print(data)
+    poster_path = data['movie_results'][0]['poster_path']
+    full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
+    return full_path
+
+
 profit_id_list = ['tt0499549', 'tt2488496', 'tt0120338', 'tt0369610', 'tt2820852', 'tt0848228', 'tt1201607',
                   'tt2395427', 'tt1323045', 'tt0113957', 'tt2293640', 'tt0167260', 'tt1300854', 'tt1399103', 'tt1074638']
 profit_list = ['Avatar',
@@ -250,9 +261,38 @@ def show(col, title):
     # for idx, image in enumerate(images):
     #     #st.header(title[idx % 5])
     #     next(cols).image(image, width=150)
-    for i in range(15):
-        next(cols).markdown(
-            "[{}](https://www.imdb.com/title/{}/)".format(l[i][1], l[i][0]))
+    for i in range(3):
+        col1, col2, col3, col4, col5 = st.columns(5)
+        with col1:
+            n = i+0
+            url = fetch_poster(l[n][0])
+            st.image(url)
+            st.write(
+                "[{}](https://www.imdb.com/title/{}/)\n".format(l[n][1], l[n][0]))
+        with col2:
+            n = i+1
+            url = fetch_poster(l[n][0])
+            st.image(url)
+            st.write(
+                "[{}](https://www.imdb.com/title/{}/)\n".format(l[n][1], l[n][0]))
+        with col3:
+            n = i+2
+            url = fetch_poster(l[n][0])
+            st.image(url)
+            st.write(
+                "[{}](https://www.imdb.com/title/{}/)\n".format(l[n][1], l[n][0]))
+        with col4:
+            n = i+3
+            url = fetch_poster(l[n][0])
+            st.image(url)
+            st.write(
+                "[{}](https://www.imdb.com/title/{}/)\n".format(l[n][1], l[n][0]))
+        with col5:
+            n = i+4
+            url = fetch_poster(l[n][0])
+            st.image(url)
+            st.write(
+                "[{}](https://www.imdb.com/title/{}/)\n".format(l[n][1], l[n][0]))
 
 
 title_list, final_df, similarity_score, lower_title_list = load_models()
