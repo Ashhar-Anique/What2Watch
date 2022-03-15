@@ -249,6 +249,7 @@ def show(col, title):
     l = []
     for i in range(15):
         l.append([col[i], title[i]])
+
     # images = []
     # for i in col:
     #     response = requests.get(
@@ -263,31 +264,31 @@ def show(col, title):
     for i in range(3):
         col1, col2, col3, col4, col5 = st.columns(5)
         with col1:
-            n = i+0
+            n = i*5+0
             url = fetch_poster(l[n][0])
             st.image(url)
             st.write(
                 "[{}](https://www.imdb.com/title/{}/)\n".format(l[n][1], l[n][0]))
         with col2:
-            n = i+1
+            n = i*5+1
             url = fetch_poster(l[n][0])
             st.image(url)
             st.write(
                 "[{}](https://www.imdb.com/title/{}/)\n".format(l[n][1], l[n][0]))
         with col3:
-            n = i+2
+            n = i*5+2
             url = fetch_poster(l[n][0])
             st.image(url)
             st.write(
                 "[{}](https://www.imdb.com/title/{}/)\n".format(l[n][1], l[n][0]))
         with col4:
-            n = i+3
+            n = i*5+3
             url = fetch_poster(l[n][0])
             st.image(url)
             st.write(
                 "[{}](https://www.imdb.com/title/{}/)\n".format(l[n][1], l[n][0]))
         with col5:
-            n = i+4
+            n = i*5+4
             url = fetch_poster(l[n][0])
             st.image(url)
             st.write(
