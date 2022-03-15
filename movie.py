@@ -8,7 +8,6 @@ from PIL import Image
 import base64
 import requests
 from itertools import cycle
-key = 'k_qy8yg6dq'
 
 
 def fetch_poster(movie_id):
