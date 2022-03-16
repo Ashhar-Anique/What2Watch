@@ -212,6 +212,7 @@ def load_models():
 title_list, final_df, similarity_score, lower_title_list = load_models()
 
 
+@st.cache(allow_output_mutation=True)
 def find_id(l):
     id_list = []
     for i in l:
