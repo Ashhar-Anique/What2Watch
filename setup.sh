@@ -1,11 +1,11 @@
 mkdir -p ~/.streamlit/
-echo "\
-[general]\n\
-email = \"souvenger@gmail.com\"\n\
-" > ~/.streamlit/credentials.toml
-echo "\
-[server]\n\
-headless = true\n\
-enableCORS=false\n\
-port = $PORT\n\
+echo "[theme]
+primaryColor='#e41212'
+backgroundColor='#f1b9b1'
+secondaryBackgroundColor='#b7130b'
+font = 'monospace'
+[server]
+headless = true
+port = $PORT
+enableCORS = false
 " > ~/.streamlit/config.toml
