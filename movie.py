@@ -16,9 +16,14 @@ def fetch_poster(movie_id):
     data = requests.get(url)
     data = data.json()
     # print(data)
-    poster_path = data['movie_results'][0]['poster_path']
-    full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
-    return full_path
+    try:
+        poster_path = data['movie_results'][0]['poster_path']
+        full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
+        return full_path
+    except:
+        img = Image.open("D:\\PROJECTS\\What_2_Watch\\What2watch.png")
+        img = img.resize((500, 750))
+        return img
 
 
 profit_id_list = ['tt0499549', 'tt2488496', 'tt0120338', 'tt0369610', 'tt2820852', 'tt0848228', 'tt1201607',
@@ -305,6 +310,9 @@ def main():
     st.sidebar.markdown('[![Harsh-Dhamecha]'
                         '(https://img.shields.io/badge/Author-Sourav%20Dey-brightgreen)]'
                         '(https://github.com/souvenger)')
+    img = Image.open("D:\\PROJECTS\\What_2_Watch\\What2watch.png")
+    st.sidebar.image(
+        img, use_column_width=True)
 
     st.sidebar.title("Facts Probably U Don't Know")
     select = st.sidebar.selectbox(
@@ -315,7 +323,7 @@ def main():
         # img = Image.open("D:\PROJECTS\home.jpg")
         # st.image(img, width=1120)
         try:
-            movie_input = st.text_input("Enter Ur Favourite Movie")
+            movie_input = st.text_input("Enter Movie Name")
             if(st.button("Show Recommendations")):
                 l = recommend(movie_input)
 
@@ -412,10 +420,11 @@ def main():
 
         img = Image.open('odessy.jpg')
         st.image(img)
+        img2 = Image.open('top_15_runtime.png')
+        st.image(img2, width=700)
+
         st.subheader("Other Longest Movies are ")
         show(runtime_id, runtime_list)
-        img2 = Image.open('top_15_runtime.png')
-        st.image(img2, width=900)
 
 
 if __name__ == '__main__':
