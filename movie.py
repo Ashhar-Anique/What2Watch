@@ -21,7 +21,7 @@ def fetch_poster(movie_id):
         full_path = "https://image.tmdb.org/t/p/w500/" + poster_path
         return full_path
     except:
-        img = Image.open("D:\\PROJECTS\\What_2_Watch\\What2watch.png")
+        img = Image.open("What2watch.png")
         img = img.resize((500, 750))
         return img
 
