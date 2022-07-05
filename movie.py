@@ -310,7 +310,7 @@ def main():
     st.sidebar.markdown('[![Harsh-Dhamecha]'
                         '(https://img.shields.io/badge/Author-Sourav%20Dey-brightgreen)]'
                         '(https://github.com/souvenger)')
-    img = Image.open("D:\\PROJECTS\\What_2_Watch\\What2watch.png")
+    img = Image.open("What2watch.png")
     st.sidebar.image(
         img, use_column_width=True)
 
